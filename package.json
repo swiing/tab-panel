@@ -1,0 +1,32 @@
+{
+  "name": "tab-panel",
+  "version": "0.0.1",
+  "description": "A tab panel web component",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swiing/tab-panel.git"
+  },
+  "keywords": [
+    "tab panel",
+    "web component",
+    "custom element",
+    "html"
+  ],
+  "author": "swiing",
+  "license": "ISC",
+  "scripts": {
+    "lint": "eslint src/**/*.js",
+    "style": "prettier src/**/*.js --write",
+    "style:check": "prettier src/**/*.js --check"
+  },
+  "directories": {
+    "example": "./example",
+    "src": "./src"
+  },
+  "devDependencies": {
+    "eslint": "8.5.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "prettier": "2.5.1"
+  }
+}
