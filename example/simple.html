@@ -1,0 +1,51 @@
+<html><head>
+
+  <script defer type="module" src="../src/tab-panel.js"></script>
+  <meta name="viewport" content="width=device-width" />
+
+  <!-- customize as desired -->
+  <style>
+    /* I give a nice-looking fixed height to my panels */
+    tab-panel { display: flex; flex-direction: column; }
+    tab-panel section { height: 200px; }
+
+  	/* give it some space */
+    section    { padding: 16px;  }
+
+    /* button look */
+	  button[aria-selected=true] { color: red; }
+    tab-panel button { border-width: 1px; background: white; }
+  </style>
+
+</head><body>
+
+  <h1>Tab panel custom element demo</h1>
+
+  <p>This page demonstrates how to customize tabpanels.</p>
+
+  <tab-panel background>
+
+    <button slot="title"          >Tab 1</button>
+    <button slot="title" selected >Tab 2</button>
+    <button slot="title" disabled >Tab 3</button>
+    <button slot="title"          >Tab 4</button>
+
+    <section>content panel 1</section>
+
+    <!-- @todo: by default panel is flex horizontally, which is not nice.
+         Correct, but beware not to break x-optimizer, though. -->
+    <section style="flex-direction: column; " >
+      <p>content panel 2</p>
+      <p>add "selected" attribute to tab button to select. If none specified, first tab button is selected by default.</p>
+      <p>Click other tab, or navigate using keyboard (tab/enter, or arrows).</p>
+    </section>
+
+    <section>content panel 3</section>
+
+    <section>content panel 4</section>
+
+  </tab-panel>
+
+  <p>Other stuff</p>
+
+</body></html>
