@@ -6,6 +6,9 @@
     "type": "git",
     "url": "https://github.com/swiing/tab-panel.git"
   },
+  "type": "module",
+  "module": "out/tab-panel.js",
+  "typings": "out/tab-panel.d.ts",
   "keywords": [
     "tab panel",
     "web component",
@@ -15,6 +18,7 @@
   "author": "swiing",
   "license": "ISC",
   "scripts": {
+    "build": "tsc -p .",
     "lint": "eslint src/**/*.ts",
     "style": "prettier src/**/*.ts --write",
     "style:check": "prettier src/**/*.ts --check"

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "out",
     "target": "es2021",
     "lib": [
       "es2021", "DOM"
@@ -11,11 +12,6 @@
     // "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "declaration": true,
-    "declarationMap": true, // enables importers to jump to source
-
-    // be able to run tests from root
-    "moduleResolution": "node12",
-    //
-    "experimentalDecorators": true
+    "declarationMap": true // enables importers to jump to source
   }
 }
