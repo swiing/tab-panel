@@ -1,3 +1,5 @@
+import stylesheet from "./tab-panel.css" assert { type: "css" }
+
 const styles = new WeakMap();
 
 // @todo: for now, this allows only one tabpanel in a window
@@ -39,82 +41,18 @@ export default class TabPanel extends HTMLElement {
   // https://stackoverflow.com/a/40494899
   constructor() {
     super();
-    this.attachShadow({ mode: 'open' }).innerHTML = `
-      <style>
-        :host {
-          display: inline-block;
-        }
+    const root = this.attachShadow({ mode: 'open' })
 
-        :host([background]) {
-          background: var(--background-color, white);
-        }
-
-        #panels { flex-grow:1; display: flex; flex-direction: column;
-          margin-top: -1px; /* as per http://stackoverflow.com/questions/27228686/double-borders-div-should-merge-css */
-          border-top: 1px solid #eeeeee;
-        }
-
-        #tabs { flex:0 0 content;
-          -webkit-user-select: none;
-          user-select: none;
-          position: relative;
-        }
-
-        /* /* It seems ::slotted + ::before pseudo selectors don't work properly together */
-        /* #tabs ::slotted(*)::before { */
-            /* content: ''; */
-            /* /* height: 100%; */
-            /* /* left: 50%; */
-            /* /* position: absolute; */
-            /* /* top: 50%; */
-            /* /* transform: translate(-50%, -50%); */
-            /* /* width: 100%; */
-        /* } */
-
-        #tabs ::slotted(*) {
-          background-color: #fafafa;
-          border: 1px solid #eeeeee;
-          border-radius: 0 10px 0 0;
-          padding: 6px 8px;
-          margin: 0;
-          text-align: center;
-          min-width: 100px;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          overflow: hidden;
-          cursor: pointer;
-        }
-
-        #tabs ::slotted([aria-selected="true"]) {
-          background-color: unset;
-          font-weight: 600;
-          border-bottom: 1px solid var( background-color, transparent);
-        }
-
-        #tabs ::slotted(:focus) {
-          z-index: 1; /* make sure focus ring doesn't get buried */
-        }
-
-        #panels ::slotted([aria-hidden="true"]) {
-          display: none;
-        }
-
-        /* tabs take screen width on smartphones */
-        @media (max-width: 1024px) {
-          #tabs {
-            display: flex;
-          }
-          #tabs ::slotted(*) {
-            flex-grow: 1;
-          }
-        }
-      </style>
+    root.innerHTML = `
       <div id="tabs">
         <slot id="tabsSlot" name="title"></slot>
       </div>
       <div id="panels">
         <slot id="panelsSlot"></slot>
       </div>`;
+
+    // @ts-ignore https://github.com/microsoft/TypeScript/issues/30022
+    root.adoptedStyleSheets = [ stylesheet ];
 
     this.setAttribute('role', 'tablist');
 
