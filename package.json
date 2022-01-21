@@ -1,5 +1,5 @@
 {
-  "name": "tab-panel",
+  "name": "@webcomponent/tab-panel",
   "version": "0.0.1",
   "description": "A tab panel web component",
   "repository": {
