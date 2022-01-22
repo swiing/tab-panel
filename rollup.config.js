@@ -10,5 +10,7 @@ export default {
   acornInjectPlugins: [importAssertions],
   plugins: [
     importAssertionsPlugin()
-  ]
+  ],
+  // https://stackoverflow.com/a/60347490
+  context: "this"
 }

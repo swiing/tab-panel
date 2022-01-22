@@ -1,4 +1,5 @@
-import stylesheet from "./tab-panel.css" assert { type: "css" }
+// @ts-ignore
+import stylesheet from "../src/tab-panel.css" assert { type: "css" }
 
 const styles = new WeakMap();
 
