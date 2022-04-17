@@ -1,5 +1,5 @@
 {
-  "name": "@webcomponent/tab-panel",
+  "name": "tab-panel",
   "version": "0.0.1",
   "description": "A tab panel web component",
   "repository": {
@@ -20,6 +20,7 @@
   "scripts": {
     "build": "tsc -p . && rollup -c",
     "lint": "eslint src/**/*.ts",
+    "prepare": "npm run build",
     "style": "prettier src/**/*.ts --write",
     "style:check": "prettier src/**/*.ts --check"
   },
