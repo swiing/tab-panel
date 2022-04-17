@@ -1,4 +1,4 @@
-// @ts-ignore
+// eslint-disable-next-line import/no-useless-path-segments
 import stylesheet from "../src/tab-panel.css" assert { type: "css" }
 
 const styles = new WeakMap();
